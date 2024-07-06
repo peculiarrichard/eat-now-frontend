@@ -8,7 +8,6 @@ import {
   showPasswordAtom,
   formErrorsAtom,
 } from "../../atoms/other-atoms";
-import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { PrimaryButton } from "../dashboard/ButtonAndLinks";
 import { Link } from "react-router-dom";
@@ -19,7 +18,6 @@ export const RegisterForm = () => {
   const [isLoading, setIsLoading] = useAtom(isLoadingAtom);
   const setUser = useSetAtom(userAtom);
   const [errMsg, setErrMsg] = useAtom(errorMsgAtom);
-  const navigate = useNavigate();
   const toast = useToast();
   const [showPassword, setShowPassword] = useAtom(showPasswordAtom);
   const [formErrors, setFormErrors] = useAtom(formErrorsAtom);
@@ -28,7 +26,7 @@ export const RegisterForm = () => {
     e.preventDefault();
     await registerAndSigninUser(
       setIsLoading,
-      navigate,
+      // navigate,
       toast,
       setErrMsg,
       formvalues,

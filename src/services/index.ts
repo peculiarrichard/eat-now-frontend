@@ -1,7 +1,6 @@
 const apiUrl = import.meta.env.VITE_API_URL;
 import { ToastProps } from "@chakra-ui/react";
 import { RegisterFormValues, User } from "../models/User";
-import { NavigateFunction } from "react-router-dom";
 // import { SetStateAction } from "jotai/experimental";
 import { handleValidationError } from "../utils/handleValidationErrors";
 import { registrationValidationSchema } from "../validations";
@@ -16,7 +15,7 @@ const token = user?.token;
 
 export const registerAndSigninUser = async (
   setLoading: (val: boolean) => void,
-  navigate: NavigateFunction,
+  // navigate: NavigateFunction,
   toast: (val: ToastProps) => void,
   setErrorMsg: (val: string) => void,
   formValues: RegisterFormValues,
@@ -47,7 +46,7 @@ export const registerAndSigninUser = async (
         isClosable: true,
       });
       setUser(user);
-      navigate("/dashboard");
+      window.location.href = "/dashboard";
     } else {
       setErrorMsg(message);
     }
